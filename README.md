@@ -5,8 +5,10 @@
 
 |Column|Type|Options|
 |:--|:-:|:--|
+|id|integer|index: true, null: false, unique: true|
 |name|string|index: true, null: false, unique: true|
-|mail|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
 
 ### Association
 + has_many :groups, through: members
