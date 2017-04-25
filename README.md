@@ -18,6 +18,7 @@
 ## groups table
 |Column|Type|Options|
 |:--|:-:|:--|
+|id|integer|null: false, unique: true|
 |name|string|null: false, unique: true|
 
 ### Association
@@ -28,8 +29,8 @@
 ## user_group table
 |Column|Type|Options|
 |:--|:-:|:--|
-|group_name|string|null: false|
-|user_name|string|null: false|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 + belongs_to :user
@@ -40,8 +41,8 @@
 |:--|:-:|:--|
 |body|text||
 |image|string||
-|group_name|string|null: false|
-|user_name|string|null: false|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 + belongs_to :user
