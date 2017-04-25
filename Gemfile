@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'haml-rails'
+gem 'erb2haml'
 
 group :development, :test do
   gem 'byebug'
