@@ -5,10 +5,7 @@
 
 |Column|Type|Options|
 |:--|:-:|:--|
-|id|integer|index: true, null: false, unique: true|
 |name|string|index: true, null: false|
-|email|string|null: false, unique: true|
-|password|string|null: false|
 
 ### Association
 + has_many :groups, through: group_users
@@ -18,7 +15,6 @@
 ## groups table
 |Column|Type|Options|
 |:--|:-:|:--|
-|id|integer|null: false, unique: true|
 |name|string|null: false, unique: true|
 
 ### Association
