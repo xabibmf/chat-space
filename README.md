@@ -2,6 +2,7 @@
 
 ## users table
 + usersテーブルはdeviseを利用する。
+
 |Column|Type|Options|
 |:--|:-:|:--|
 |name|string|index: true, null: false, unique: true|
