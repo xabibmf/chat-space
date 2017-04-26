@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+}
+
+.contents {
+  height: 100%;
+}
+
+.right-content {
+  float: left;
+  width: 260px;
+  height: 100%;
+  padding: 0 20px 0;
+  color: #fff;
+  background-color: #253141;
+}
+
+.left-content {
+  float: right;
+  width: calc(100vw - 380px);
+  height: 100%;
+  padding: 0 40px 0;
+  background-color: #aaa;
+}

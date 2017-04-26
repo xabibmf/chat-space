@@ -1,28 +1,29 @@
-.right-content
-  .user-name takuma
-  %i.fa.fa-edit
-  %i.fa.fa-gear
-  %ul.groups
-    %li.group
-      .group__name sample
-      .group__last-message Good bye world!
-.left-content
-  .show-group
-    .show-group__name sample
-    .show-group__members Members: neko takuma
-    .show-group__edit-button Edit
-  %ul.message-list
-    %li.message-box
-      .message-box__speaker takuma
-      .message-box__date 2016/04/25 14:14:14
-      .message-box__message Hello world!
-  %ul.message-list
-    %li.message-box
-      .message-box__speaker neko
-      .message-box__date 2016/04/26 09:24:55
-      .message-box__message Hello world!
-  .input
-    %form.input-form{action: "/", method: "post"}
-      %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
-        %i.fa.fa-picture-o
-      %input.input-form__send{type: "submit", value: "Send"}
+.contents
+  .right-content
+    .user-name takuma
+    %i.fa.fa-edit
+    %i.fa.fa-gear
+    %ul.groups
+      %li.group
+        .group__name sample
+        .group__last-message Good bye world!
+  .left-content
+    .show-group
+      .show-group__name sample
+      .show-group__members Members: neko takuma
+      .show-group__edit-button Edit
+    %ul.message-list
+      %li.message-box
+        .message-box__speaker takuma
+        .message-box__date 2016/04/25 14:14:14
+        .message-box__message Hello world!
+    %ul.message-list
+      %li.message-box
+        .message-box__speaker neko
+        .message-box__date 2016/04/26 09:24:55
+        .message-box__message Hello world!
+    .input
+      %form.input-form{action: "/", method: "post"}
+        %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
+          %i.fa.fa-picture-o
+        %input.input-form__send{type: "submit", value: "Send"}
