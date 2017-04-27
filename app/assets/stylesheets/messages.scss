@@ -17,7 +17,7 @@ html, body {
 .left-header {
   font-size: 16px;
   font-weight: bold;
-  padding: 45px 20px;
+  padding: 40px 20px;
   height: 16px;
   background-color: #253141;
   &:after {
@@ -68,6 +68,7 @@ html, body {
       font-size: 20px;
       color: #333333;
       margin-bottom: 15px;
+      line-height: 20px;
     }
     &__members {
       font-size: 12px;
@@ -86,5 +87,31 @@ html, body {
     content: "";
     clear: both;
     display: block;
+  }
+}
+
+.right-main {
+  padding: 26px 40px 0;
+  &__message {
+    padding: 20px 0;
+    &__name {
+      font-size: 16px;
+      line-height: 16px;
+      color: #434a54;
+      float: left;
+    }
+    &__date {
+      font-size: 12px;
+      line-height: 16px;
+      color: #999999;
+      float: left;
+      margin-left: 10px;
+    }
+    &__text {
+      font-size: 14px;
+      color: #434a54;
+      clear: both;
+      padding-top: 10px;
+    }
   }
 }
