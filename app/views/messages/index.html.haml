@@ -6,12 +6,7 @@
       %i.fa.fa-gear.left-header__gear
       %i.fa.fa-edit.left-header__edit
     %ul.left-main
-      %li.left-main__group
-        .left-main__group__name sample
-        .left-main__group__last-message Good bye world!
-      %li.left-main__group
-        .left-main__group__name sample2
-        .left-main__group__last-message まだメッセージはありません。
+      = render 'group'
   .right-content
     .right-header
       .right-header__group-info
@@ -19,14 +14,7 @@
         .right-header__group-info__members Members: neko takuma
       .right-header__edit-button Edit
     %ul.right-main
-      %li.right-main__message
-        .right-main__message__name takuma
-        .right-main__message__date 2016/04/25 14:14:14
-        .right-main__message__text Hello world!
-      %li.right-main__message
-        .right-main__message__name neko
-        .right-main__message__date 2016/04/26 09:24:55
-        .right-main__message__text Hello world!
+      = render 'message'
     .right-footer
       %form.input-form{action: "/", method: "post"}
         %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
