@@ -3,8 +3,10 @@
   .left-content
     .left-header
       .left-header__name takuma
-      %i.fa.fa-gear.left-header__gear
-      %i.fa.fa-edit.left-header__edit
+      %a{href: "http://google.co.jp"}
+        %i.fa.fa-gear.left-header__gear
+      %a{href: "http://google.co.jp"}
+        %i.fa.fa-edit.left-header__edit
     %ul.left-main
       - ["sample", "sample2"].each do |name|
         = render 'group', group_name: name
@@ -20,5 +22,6 @@
     .right-footer
       %form.input-form{action: "/", method: "post"}
         %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
-        %i.fa.fa-picture-o.input-form__image
+        %a{href: "http://google.co.jp"}
+          %i.fa.fa-picture-o.input-form__image
         %input.input-form__send-button{type: "submit", value: "Send"}

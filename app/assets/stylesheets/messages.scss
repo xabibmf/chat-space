@@ -7,10 +7,10 @@ html, body {
 }
 
 .header {
-  background-color: #38aef0;
-  color: #fff;
-  text-align: center;
   line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: #38aef0;
 }
 
 .left-content {
@@ -24,8 +24,8 @@ html, body {
 .left-header {
   font-size: 16px;
   font-weight: bold;
-  padding: 40px 20px;
   height: 16px;
+  padding: 40px 20px;
   background-color: #253141;
   &:after {
     display: block;
@@ -38,9 +38,11 @@ html, body {
   &__edit {
     float: right;
     margin-right: 5px;
+    color: #fff;
   }
   &__gear {
     float: right;
+    color: #fff;
   }
 }
 
@@ -68,33 +70,33 @@ html, body {
 
 .right-header {
   padding: 0 40px;
-  border-bottom: solid 1px #eeeeee;
+  border-bottom: solid 1px #eee;
   &__group-info {
     float: left;
     margin: 35px 0 8px;
     &__name {
       font-size: 20px;
-      color: #333333;
-      margin-bottom: 15px;
       line-height: 20px;
+      margin-bottom: 15px;
+      color: #333;
     }
     &__members {
       font-size: 12px;
-      color: #999999;
+      color: #999;
     }
   }
   &__edit-button {
-    float: right;
-    border: solid 2px #38aef0;
     line-height: 40px;
+    float: right;
+    margin-top: 28px;
     padding: 0 20px;
     color: #38aef0;
-    margin-top: 28px;
+    border: solid 2px #38aef0;
   }
   &:after {
-    content: "";
-    clear: both;
     display: block;
+    clear: both;
+    content: '';
   }
 }
 
@@ -105,21 +107,21 @@ html, body {
     &__name {
       font-size: 16px;
       line-height: 16px;
-      color: #434a54;
       float: left;
+      color: #434a54;
     }
     &__date {
       font-size: 12px;
       line-height: 16px;
-      color: #999999;
       float: left;
       margin-left: 10px;
+      color: #999;
     }
     &__text {
       font-size: 14px;
-      color: #434a54;
       clear: both;
       padding-top: 10px;
+      color: #434a54;
     }
   }
 }
@@ -127,32 +129,33 @@ html, body {
 .right-footer {
   position: fixed;
   bottom: 0;
+  width: 100%;
   height: 50px;
   padding: 20px 40px;
-  width: 100%;
 }
 
 .input-form {
   position: relative;
   display: inline-block;
   &__message {
+    line-height: 50px;
     width: calc(100vw - 540px);
     padding-right: 20px;
-    line-height: 50px;
     border: none;
   }
   &__image {
     position: absolute;
-    right: 130px;
     top: 18px;
+    right: 130px;
+    color: #434a54;
   }
   &__send-button {
     width: 100px;
     height: 50px;
-    background-color: #38aef0;
-    margin-left: 15px;
     margin-right: auto;
-    color: #ffffff;
+    margin-left: 15px;
+    color: #fff;
     border: none;
+    background-color: #38aef0;
   }
 }
