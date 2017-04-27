@@ -91,7 +91,7 @@ html, body {
 }
 
 .right-main {
-  padding: 26px 40px 0;
+  padding: 26px 40px 90px;
   &__message {
     padding: 20px 0;
     &__name {
@@ -113,5 +113,38 @@ html, body {
       clear: both;
       padding-top: 10px;
     }
+  }
+}
+
+.right-footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  padding: 20px 40px;
+  width: 100%;
+}
+
+.input-form {
+  position: relative;
+  display: inline-block;
+  &__message {
+    width: calc(100vw - 540px);
+    padding-right: 20px;
+    line-height: 50px;
+    border: none;
+  }
+  &__image {
+    position: absolute;
+    right: 130px;
+    top: 20px;
+  }
+  &__send-button {
+    width: 100px;
+    height: 50px;
+    background-color: #38aef0;
+    margin-left: 15px;
+    margin-right: auto;
+    color: #ffffff;
+    border: none;
   }
 }
