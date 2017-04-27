@@ -6,7 +6,8 @@
       %i.fa.fa-gear.left-header__gear
       %i.fa.fa-edit.left-header__edit
     %ul.left-main
-      = render 'group'
+      - ["sample", "sample2"].each do |name|
+        = render 'group', group_name: name
   .right-content
     .right-header
       .right-header__group-info
@@ -14,7 +15,8 @@
         .right-header__group-info__members Members: neko takuma
       .right-header__edit-button Edit
     %ul.right-main
-      = render 'message'
+      - ["Hello world!","Good bey world!"].each do |message|
+        = render 'message', text: message
     .right-footer
       %form.input-form{action: "/", method: "post"}
         %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
