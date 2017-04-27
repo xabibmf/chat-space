@@ -15,14 +15,14 @@ html, body {
 }
 
 .left-header {
-  background-color: #253141;
-  padding: 35px 20px;
   font-size: 16px;
   font-weight: bold;
+  padding: 35px 20px;
+  background-color: #253141;
   &:after {
-    content: "";
-    clear: both;
     display: block;
+    clear: both;
+    content: '';
   }
   &__name {
     float: left;
@@ -33,6 +33,20 @@ html, body {
   }
   &__gear {
     float: right;
+  }
+}
+
+.left-main {
+  padding: 0 20px;
+  &__group {
+    padding: 20px 0;
+    &__name {
+      font-size: 15px;
+      padding-bottom: 5px;
+    }
+    &__last-message {
+      font-size: 11px;
+    }
   }
 }
 
