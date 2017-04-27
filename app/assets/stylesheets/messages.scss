@@ -6,16 +6,37 @@ html, body {
   height: 100%;
 }
 
-.right-content {
+.left-content {
   float: left;
-  width: 260px;
+  width: 300px;
   height: 100%;
-  padding: 0 20px 0;
   color: #fff;
-  background-color: #253141;
+  background-color: #2f3e51;
 }
 
-.left-content {
+.left-header {
+  background-color: #253141;
+  padding: 35px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  &__name {
+    float: left;
+  }
+  &__edit {
+    float: right;
+    margin-right: 5px;
+  }
+  &__gear {
+    float: right;
+  }
+}
+
+.right-content {
   float: right;
   width: calc(100vw - 380px);
   height: 100%;
