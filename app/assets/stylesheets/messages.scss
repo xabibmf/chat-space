@@ -1,3 +1,5 @@
+@import 'config/variables';
+
 html, body {
   line-height: 100%;
   overflow: hidden;
@@ -11,15 +13,15 @@ html, body {
 .header {
   line-height: 30px;
   text-align: center;
-  color: #fff;
-  background-color: #38aef0;
+  color: $white;
+  background-color: $blue;
 }
 
 .left-content {
   float: left;
-  width: 300px;
+  width: $left-width;
   // height: calc(100vh - 30px);
-  color: #fff;
+  color: $white;
 }
 
 .left-header {
@@ -39,11 +41,11 @@ html, body {
   &__edit {
     float: right;
     margin-right: 5px;
-    color: #fff;
+    color: $white;
   }
   &__gear {
     float: right;
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -73,20 +75,20 @@ html, body {
 .right-margin {
   float: left;
   width: 100%;
-  margin-left: -300px;
+  margin-left: -$left-width;
 }
 
 .right-content {
   float: left;
-  width: calc(100vw - 300px);
+  width: calc(100vw - #{$left-width});
   height: calc(100vh - 30px);
-  margin-left: 300px;
+  margin-left: $left-width;
 }
 
 .right-header {
   padding: 0 40px;
   border-bottom: solid 1px #eee;
-  background-color: #fff;
+  background-color: $white;
   &__group-info {
     float: left;
     margin: 35px 0 10px;
@@ -106,8 +108,8 @@ html, body {
     float: right;
     margin-top: 28px;
     padding: 0 20px;
-    color: #38aef0;
-    border: solid 2px #38aef0;
+    color: $blue;
+    border: solid 2px $blue;
   }
   &:after {
     display: block;
@@ -134,7 +136,7 @@ html, body {
       font-size: 16px;
       line-height: 16px;
       float: left;
-      color: #434a54;
+      color: $black;
     }
     &__date {
       font-size: 12px;
@@ -147,7 +149,7 @@ html, body {
       font-size: 14px;
       clear: both;
       padding-top: 10px;
-      color: #434a54;
+      color: $black;
     }
   }
 }
@@ -174,14 +176,14 @@ html, body {
     position: absolute;
     top: 18px;
     right: 130px;
-    color: #434a54;
+    color: $black;
   }
   &__send-button {
     width: 100px;
     height: 50px;
     margin-left: 15px;
-    color: #fff;
+    color: $white;
     border: none;
-    background-color: #38aef0;
+    background-color: $blue;
   }
 }
