@@ -1,0 +1,30 @@
+.contents
+  .header チャットグループが作成されました。
+  .left-content
+    .left-header
+      .left-header__name takuma
+      %a{href: "http://google.co.jp"}
+        %i.fa.fa-gear.left-header__gear
+      %a{href: "http://google.co.jp"}
+        %i.fa.fa-edit.left-header__edit
+    %ul.left-main
+      .group-list
+        - ["sample", "sample2", "sample3", "sample4", "sample5", "sample6", "sample7", "sample8", "sample9", "sample10"].each do |name|
+          = render 'group', group_name: name
+  .right-margin
+    .right-content
+      .right-header
+        .right-header__group-info
+          .right-header__group-info__name sample
+          .right-header__group-info__members Members: neko takuma
+        .right-header__edit-button Edit
+      .right-main
+        %ul.message-list
+          - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
+            = render 'message', text: message
+      .right-footer
+        %form.input-form{action: "/", method: "post"}
+          %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
+          %a{href: "http://google.co.jp"}
+            %i.fa.fa-picture-o.input-form__image
+          %input.input-form__send-button{type: "submit", value: "Send"}

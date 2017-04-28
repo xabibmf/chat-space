@@ -1,0 +1,180 @@
+@import 'config/variables';
+@import 'config/mixin';
+
+html, body {
+  line-height: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.contents {
+  height: 100%;
+}
+
+.header {
+  line-height: 30px;
+  text-align: center;
+  color: $white;
+  background-color: $blue;
+}
+
+.left-content {
+  float: left;
+  width: $left-width;
+  // height: calc(100vh - 30px);
+  color: $white;
+}
+
+.left-header {
+  font: {
+    size: 16px;
+    weight: bold;
+  }
+  height: 16px;
+  padding: 40px 20px;
+  background-color: #253141;
+  @include clearfix;
+  &__name {
+    float: left;
+  }
+  &__edit {
+    float: right;
+    margin-right: 5px;
+    color: $white;
+  }
+  &__gear {
+    float: right;
+    color: $white;
+  }
+}
+
+.left-main {
+  overflow-y: scroll;
+  height: calc(100vh - 122px);
+  background-color: #2f3e51;
+  @include scrolloff;
+}
+
+.group-list {
+  padding: 0 20px;
+  &__group {
+    padding: 20px 0;
+    &__name {
+      font-size: 15px;
+      padding-bottom: 5px;
+    }
+    &__last-message {
+      font-size: 11px;
+    }
+  }
+}
+
+.right-margin {
+  float: left;
+  width: 100%;
+  margin-left: -$left-width;
+}
+
+.right-content {
+  float: left;
+  width: calc(100vw - #{$left-width});
+  height: calc(100vh - 30px);
+  margin-left: $left-width;
+}
+
+.right-header {
+  padding: 0 40px;
+  border-bottom: solid 1px #eee;
+  background-color: $white;
+  &__group-info {
+    float: left;
+    margin: 35px 0 10px;
+    &__name {
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    &__members {
+      font-size: 12px;
+      color: #999;
+    }
+  }
+  &__edit-button {
+    line-height: 40px;
+    float: right;
+    margin-top: 28px;
+    padding: 0 20px;
+    color: $blue;
+    border: solid 2px $blue;
+  }
+  @include clearfix;
+}
+
+.right-main {
+  overflow-y: scroll;
+  height: 100%;
+  max-height: calc(100vh - 212px);
+  background-color: #ddd;
+  @include scrolloff;
+}
+
+.message-list {
+  padding: 26px 40px 0;
+  &__message {
+    padding: 20px 0;
+    &__name {
+      font-size: 16px;
+      line-height: 16px;
+      float: left;
+      color: $black;
+    }
+    &__date {
+      font-size: 12px;
+      line-height: 16px;
+      float: left;
+      margin-left: 10px;
+      color: #999;
+    }
+    &__text {
+      font-size: 14px;
+      clear: both;
+      padding-top: 10px;
+      color: $black;
+    }
+  }
+}
+
+.right-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  padding: 20px 40px;
+  background-color: #aaa;
+}
+
+.input-form {
+  position: relative;
+  display: inline-block;
+  &__message {
+    line-height: 50px;
+    width: calc(100vw - 520px);
+    padding: 0 10px 0;
+    border: none;
+  }
+  &__image {
+    position: absolute;
+    top: 18px;
+    right: 130px;
+    color: $black;
+  }
+  &__send-button {
+    width: 100px;
+    height: 50px;
+    margin-left: 15px;
+    color: $white;
+    border: none;
+    background-color: $blue;
+  }
+}
