@@ -2,7 +2,7 @@
   = render 'shared/flash'
   .left-content
     .left-header
-      .left-header__name takuma
+      .left-header__name #{current_user.name}
       = link_to edit_user_registration_path do
         %i.fa.fa-gear.left-header__gear
       = link_to "http://google.co.jp" do
