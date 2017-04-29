@@ -8,5 +8,7 @@
     = csrf_meta_tags
   %body
   .contents
-    .header #{flash[:notice]}
+    .header
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: "#{key}")
     = yield
