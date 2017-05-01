@@ -7,6 +7,10 @@
   border-radius: 5px;
   box-sizing: border-box;
 
+  .clearfix {
+    @include clearfix;
+  }
+
   h1 {
     letter-spacing: 2px;
     font-size: 24px;
