@@ -11,13 +11,15 @@
             -@group.users.each do |member|
               = member.name
         .right-header__edit-button Edit
-      .right-main
-        %ul.message-list
-          - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
-            = render 'message', text: message
-      .right-footer
-        %form.input-form{action: "/", method: "post"}
-          %input.input-form__message{name: "message", type: "text", placeholder: "type a message"}
-          = link_to "http://google.co.jp" do
-            %i.fa.fa-picture-o.input-form__image
-          %input.input-form__send-button{type: "submit", value: "Send"}
+      - if flash.empty?
+        .right-main
+          %ul.message-list
+            - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
+              = render 'message', text: message
+        = render 'right-footer'
+      - else
+        .right-main.flash
+          %ul.message-list
+            - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
+              = render 'message', text: message
+        = render 'right-footer'

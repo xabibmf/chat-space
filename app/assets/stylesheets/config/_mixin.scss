@@ -11,3 +11,9 @@
     display: none;
   }
 }
+
+@mixin flash($height-diff) {
+  .flash {
+    height: calc(100vh - #{$height-diff} - #{$header-height})
+  }
+}
