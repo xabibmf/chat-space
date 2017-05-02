@@ -1,12 +1,15 @@
 .contents
   = render 'shared/flash'
-  = render 'left_contents'
+  = render 'shared/left_contents'
   .right-margin
     .right-content
       .right-header
         .right-header__group-info
-          .right-header__group-info__name sample
-          .right-header__group-info__members Members: neko takuma
+          .right-header__group-info__name #{@group.name}
+          .right-header__group-info__members
+            Members:
+            -@group.users.each do |member|
+              = member.name
         .right-header__edit-button Edit
       .right-main
         %ul.message-list
