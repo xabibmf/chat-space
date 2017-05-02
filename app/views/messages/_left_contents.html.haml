@@ -7,5 +7,4 @@
       %i.fa.fa-edit.left-header__edit
   %ul.left-main
     .group-list
-      - @groups.each do |group|
-        = render 'group', group: group
+      = render partial: 'group', collection: @groups
