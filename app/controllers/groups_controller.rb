@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = User.find(current_user.id).groups
+    @groups = current_user.groups
   end
 
   def edit
