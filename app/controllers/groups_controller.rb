@@ -3,6 +3,10 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def index
+    @groups = User.find(current_user.id).groups
+  end
+
   def edit
   end
 
