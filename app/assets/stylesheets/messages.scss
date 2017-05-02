@@ -12,10 +12,16 @@ html, body {
 }
 
 .header {
-  line-height: 30px;
+  line-height: $header-height;
   text-align: center;
   color: $white;
   background-color: $blue;
+  .notice {
+    background-color: red;
+  }
+  .alert {
+    background-color: red;
+  }
 }
 
 .left-content {
@@ -50,15 +56,25 @@ html, body {
 
 .left-main {
   overflow-y: scroll;
-  height: calc(100vh - 122px);
+  height: calc(100vh - 92px);
   background-color: #2f3e51;
   @include scrolloff;
+  @include flash(92px);
 }
 
 .group-list {
   padding: 0 20px;
   &__group {
     padding: 20px 0;
+    // // position: relative;
+    // &--link {
+    //   display: block;
+    // //   position: absolute;
+    // //   top: 0;
+    // //   left: 0;
+    //   // width: 100%;
+    //   // height: 100%;
+    // }
     &__name {
       font-size: 15px;
       padding-bottom: 5px;
@@ -114,9 +130,10 @@ html, body {
 .right-main {
   overflow-y: scroll;
   height: 100%;
-  max-height: calc(100vh - 212px);
+  max-height: calc(100vh - 182px);
   background-color: #ddd;
   @include scrolloff;
+  @include flash(182px);
 }
 
 .message-list {
