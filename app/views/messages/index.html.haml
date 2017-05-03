@@ -10,7 +10,7 @@
             Members:
             -@group.users.each do |member|
               = member.name
-        .right-header__edit-button Edit
+        = link_to 'Edit', edit_group_path(@group), class: 'right-header__edit-button'
       - if flash.empty?
         .right-main
           %ul.message-list
