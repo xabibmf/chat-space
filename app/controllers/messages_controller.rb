@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
+
   def index
     @groups = current_user.groups
     @messages = @group.messages
@@ -12,6 +13,7 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def message_params
     params.permit(:group_id, message: [:body])
   end
