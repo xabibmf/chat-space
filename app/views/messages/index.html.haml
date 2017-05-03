@@ -14,12 +14,10 @@
       - if flash.empty?
         .right-main
           %ul.message-list
-            - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
-              = render 'message', text: message
+            = render partial: 'message', collection: @messages
         = render 'right-footer'
       - else
         .right-main.flash
           %ul.message-list
-            - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
-              = render 'message', text: message
+            = render partial: 'message', collection: @messages
         = render 'right-footer'
