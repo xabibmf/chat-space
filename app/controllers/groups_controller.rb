@@ -18,7 +18,8 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to group_messages_path(@group), notice: 'グループが作成されました。'
     else
-      redirect_to root_path, alert: 'グループ作成に失敗しました。'
+      flash.now[:alert] = 'グループ作成に失敗しました。'
+      render :new
     end
   end
 
@@ -26,7 +27,8 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: 'グループ情報が編集されました。'
     else
-      redirect_to root_path, alert: 'グループ編集に失敗しました。'
+      flash.now[:alert] = 'グループ編集に失敗しました。'
+      render :edit
     end
   end
 
