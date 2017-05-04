@@ -11,13 +11,7 @@
             -@group.users.each do |member|
               = member.name
         = link_to 'Edit', edit_group_path(@group), class: 'right-header__edit-button'
-      - if flash.empty?
-        .right-main
-          %ul.message-list
-            = render partial: 'message', collection: @messages
-        = render 'right-footer'
-      - else
-        .right-main.flash
-          %ul.message-list
-            = render partial: 'message', collection: @messages
-        = render 'right-footer'
+      .right-main{class: !flash.empty? && "flash"}
+        %ul.message-list
+          = render partial: 'message', collection: @messages
+      = render 'right-footer'

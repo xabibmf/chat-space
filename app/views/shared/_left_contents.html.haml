@@ -5,11 +5,6 @@
       %i.fa.fa-gear.left-header__gear
     = link_to new_group_path do
       %i.fa.fa-edit.left-header__edit
-  - if flash.empty?
-    %ul.left-main
-      .group-list
-        = render partial: 'shared/group', collection: @groups
-  - else
-    %ul.left-main.flash
-      .group-list
-        = render partial: 'shared/group', collection: @groups
+  %ul.left-main{class: !flash.empty? && "flash"}
+    .group-list
+      = render partial: 'shared/group', collection: @groups
