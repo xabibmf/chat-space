@@ -1,5 +1,5 @@
 .right-footer
-  = form_for @message, url: { action: :create }, html: { class: "input-form" } do |f|
+  = form_for [@group, @message], class: "input-form" do |f|
     = f.text_field :body, class: "input-form__message", placeholder: "type a message"
     = link_to "http://google.co.jp" do
       %i.fa.fa-picture-o.input-form__image
