@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(body: message_params[:message][:body], group_id: message_params[:group_id], user_id: current_user.id)
+    @message = Message.new(message_params)
     if @message.save
       redirect_to group_messages_path(@group)
     else
@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.permit(:group_id, message: [:body])
+    params.require(:message).permit(:body).merge(params.permit(:group_id)).merge({user_id: current_user.id})
   end
 
   def set_group
