@@ -3,4 +3,4 @@
     = f.text_field :body, class: "input-form__message", placeholder: "type a message"
     = link_to "http://google.co.jp" do
       %i.fa.fa-picture-o.input-form__image
-    = submit_tag 'Send', class: "input-form__send-button", type: "submit"
+    = f.submit 'Send', class: "input-form__send-button"
