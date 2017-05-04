@@ -1,7 +1,4 @@
 %li.group-list__group
   = link_to "/groups/#{group.id}/messages", class: 'group-list__group--link' do
     .group-list__group__name #{group.name}
-    - if group.messages.last
-      .group-list__group__last-message= group.messages.last[:body]
-    - else
-      .group-list__group__last-message まだメッセージはありません
+    .group-list__group__last-message= group.messages.last.try(:body) || "まだメッセージはありません"
