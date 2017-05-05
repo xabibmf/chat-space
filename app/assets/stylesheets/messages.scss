@@ -168,18 +168,14 @@ html, body {
 }
 
 .input-form {
-  position: relative;
-  display: inline-block;
   &__message {
     line-height: 50px;
-    width: calc(100vw - 520px);
+    width: calc(100vw - 510px);
     padding: 0 10px 0;
     border: none;
   }
   &__image {
-    position: absolute;
-    top: 18px;
-    right: 130px;
+    margin-left: -30px;
     color: $black;
   }
   &__send-button {
