@@ -26,7 +26,6 @@ html, body {
 .left-content {
   float: left;
   width: $left-width;
-  // height: calc(100vh - 30px);
   color: $white;
 }
 
@@ -127,11 +126,10 @@ html, body {
 
 .right-main {
   overflow-y: scroll;
-  height: 100%;
-  max-height: calc(100vh - 182px);
+  height: calc(100vh - 185px);
   background-color: #ddd;
   @include scrolloff;
-  @include flash(182px);
+  @include flash(185px);
 }
 
 .message-list {
@@ -170,18 +168,17 @@ html, body {
 }
 
 .input-form {
-  position: relative;
-  display: inline-block;
   &__message {
     line-height: 50px;
-    width: calc(100vw - 520px);
+    width: calc(100vw - 510px);
     padding: 0 10px 0;
     border: none;
   }
+  a {
+    text-decoration: none;
+  }
   &__image {
-    position: absolute;
-    top: 18px;
-    right: 130px;
+    margin-left: -30px;
     color: $black;
   }
   &__send-button {
