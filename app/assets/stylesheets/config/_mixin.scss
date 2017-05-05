@@ -13,7 +13,7 @@
 }
 
 @mixin flash($height-diff) {
-  .flash {
-    height: calc(100vh - #{$height-diff} - #{$header-height})
+  &.flash {
+    height: calc(100vh - #{$height-diff} - #{$header-height});
   }
 }

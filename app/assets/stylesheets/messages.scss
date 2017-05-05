@@ -128,10 +128,10 @@ html, body {
 .right-main {
   overflow-y: scroll;
   height: 100%;
-  max-height: calc(100vh - 182px);
+  max-height: calc(100vh - 185px);
   background-color: #ddd;
   @include scrolloff;
-  @include flash(182px);
+  @include flash(185px);
 }
 
 .message-list {
