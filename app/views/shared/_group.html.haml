@@ -1,4 +1,4 @@
 %li.group-list__group
-  = link_to "/groups/#{group.id}/messages", class: 'group-list__group--link' do
+  = link_to group_messages_path(group), class: 'group-list__group--link' do
     .group-list__group__name #{group.name}
     .group-list__group__last-message= group.messages.last.try(:body) || "まだメッセージはありません"
