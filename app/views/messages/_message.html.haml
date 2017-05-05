@@ -1,4 +1,4 @@
 %li.message-list__message
-  .message-list__message__name takuma
-  .message-list__message__date 2016/04/25 14:14:14
-  .message-list__message__text= text
+  .message-list__message__name= message.user.name
+  .message-list__message__date= message.created_at.to_s(:db)
+  .message-list__message__text= message.body

@@ -7,19 +7,9 @@
         .right-header__group-info
           .right-header__group-info__name #{@group.name}
           .right-header__group-info__members
-            Members:
-            -@group.users.each do |member|
-              = member.name
+            Members: #{@group.users.pluck(:name).join(" ")}
         = link_to 'Edit', edit_group_path(@group), class: 'right-header__edit-button'
-      - if flash.empty?
-        .right-main
-          %ul.message-list
-            - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
-              = render 'message', text: message
-        = render 'right-footer'
-      - else
-        .right-main.flash
-          %ul.message-list
-            - ["Hello world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!","Good bey world!", "test"].each do |message|
-              = render 'message', text: message
-        = render 'right-footer'
+      .right-main{class: !flash.empty? && "flash"}
+        %ul.message-list
+          = render partial: 'message', collection: @messages
+      = render 'right-footer'
