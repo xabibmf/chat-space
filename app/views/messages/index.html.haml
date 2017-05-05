@@ -7,9 +7,7 @@
         .right-header__group-info
           .right-header__group-info__name #{@group.name}
           .right-header__group-info__members
-            Members:
-            -@group.users.each do |member|
-              = member.name
+            Members: #{@group.users.pluck(:name).join(" ")}
         = link_to 'Edit', edit_group_path(@group), class: 'right-header__edit-button'
       .right-main{class: !flash.empty? && "flash"}
         %ul.message-list
