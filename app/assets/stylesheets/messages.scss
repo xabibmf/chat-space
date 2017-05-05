@@ -26,7 +26,6 @@ html, body {
 .left-content {
   float: left;
   width: $left-width;
-  // height: calc(100vh - 30px);
   color: $white;
 }
 
@@ -127,8 +126,7 @@ html, body {
 
 .right-main {
   overflow-y: scroll;
-  height: 100%;
-  max-height: calc(100vh - 185px);
+  height: calc(100vh - 185px);
   background-color: #ddd;
   @include scrolloff;
   @include flash(185px);
