@@ -2,7 +2,7 @@ require 'rails_helper'
 describe Message do
   describe '#create' do
     it "is valid" do
-      message = build(:message, body: "valid test")
+      message = build(:message)
       message.valid?
       expect(message).to be_valid
     end
