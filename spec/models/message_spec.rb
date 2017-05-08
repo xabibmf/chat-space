@@ -10,7 +10,7 @@ describe Message do
     it "is invalid without a body" do
       message = build(:message, body: "")
       message.valid?
-      expect(message.errors[:body]).to include("translation missing: ja.activerecord.errors.models.message.attributes.body.blank")
+      expect(message.errors.full_messages).to include("メッセージを入力してください")
     end
   end
 end
