@@ -10,7 +10,7 @@ describe MessagesController do
     sign_out @user
   end
 
-  let!(:group) { create(:group, users: [@user]) }
+  let(:group) { create(:group, users: [@user]) }
 
   describe "GET #index" do
     it "renders the :index template" do
@@ -21,13 +21,13 @@ describe MessagesController do
     it "assigns an array of messages" do
       messages = create_list(:message, 3, user: @user, group: group)
       get :index, params: { group_id: group }
-      expect(assigns(:messages)).to match(messages)
+      expect(assigns(:messages)).to match_array(messages)
     end
 
     it "assigns an array of groups" do
-      groups = create_list(:group, 3, users: [@user]) << group
-      get :index, params: { group_id: group }
-      expect(assigns(:groups)).to match(groups.sort { |a, b| a.id <=> b.id })
+      groups = create_list(:group, 3, users: [@user])
+      get :index, params: { group_id: groups[0] }
+      expect(assigns(:groups)).to match_array(groups)
     end
 
     it "assigns the requested group to @group" do
