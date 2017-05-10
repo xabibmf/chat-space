@@ -54,22 +54,26 @@ describe MessagesController do
       }
     end
 
-    it "saves the new message in the database" do
-      expect { post :create, params: message_params }.to change(Message, :count).by(1)
+    context "when message body exist" do
+      it "saves the new message in the database" do
+        expect { post :create, params: message_params }.to change(Message, :count).by(1)
+      end
+
+      it "redirect to group_messages_path" do
+        post :create, params: message_params
+        expect(response).to redirect_to group_messages_path
+      end
     end
 
-    it "not saves the new message when body empty" do
-      expect { post :create, params: message_empty }.to change(Message, :count).by(0)
-    end
+    context "when message body empty" do
+      it "can't saves the new message" do
+        expect { post :create, params: message_empty }.to change(Message, :count).by(0)
+      end
 
-    it "redirect to group_messages_path when successing create message" do
-      post :create, params: message_params
-      expect(response).to redirect_to group_messages_path
-    end
-
-    it "renders the :index when failing create message" do
-      post :create, params: message_empty
-      expect(response).to render_template :index
+      it "renders the :index" do
+        post :create, params: message_empty
+        expect(response).to render_template :index
+      end
     end
   end
 end
