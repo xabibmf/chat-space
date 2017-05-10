@@ -35,4 +35,41 @@ describe MessagesController do
       expect(assigns(:group)).to eq group
     end
   end
+
+  describe "POST #create" do
+    let(:message_params) do
+      {
+        group_id: group,
+        message: {
+          body: "test message"
+        }
+      }
+    end
+    let(:message_empty) do
+      {
+        group_id: group,
+        message: {
+          body: ""
+        }
+      }
+    end
+
+    it "saves the new message in the database" do
+      expect { post :create, params: message_params }.to change(Message, :count).by(1)
+    end
+
+    it "not saves the new message when body empty" do
+      expect { post :create, params: message_empty }.to change(Message, :count).by(0)
+    end
+
+    it "redirect to group_messages_path when successing create message" do
+      post :create, params: message_params
+      expect(response).to redirect_to group_messages_path
+    end
+
+    it "renders the :index when failing create message" do
+      post :create, params: message_empty
+      expect(response).to render_template :index
+    end
+  end
 end
