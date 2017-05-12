@@ -1,4 +1,4 @@
 %li.message-list__message
   .message-list__message__name= message.user.name
-  .message-list__message__date= message.created_at.to_s(:db)
+  .message-list__message__date= message.created_at.strftime('%Y-%m-%d %H:%M:%S')
   .message-list__message__text= message.body
