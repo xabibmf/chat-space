@@ -38,10 +38,12 @@ $(function() {
       var html = buildHTML(data);
       $('.message-list').append(html);
       textField.val('');
-      button.attr('disabled', false);
     })
     .fail(function() {
       alert('error');
+    })
+    .always(function() {
+      button.attr('disabled', false);
     })
   });
 });
