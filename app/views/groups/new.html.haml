@@ -9,10 +9,18 @@
         = f.text_field :name, id: 'chat_group_name', class: 'chat-group-form__input', placeholder: "グループ名を入力してください"
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label :users, "チャットメンバー", class: 'chat-group-form__label'
+        = f.label :users, "チャットメンバーを追加", class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |b|
-          = b.label { b.check_box + b.text }
+        %input.chat-group-form__input{ placeholder: "追加したいユーザ名を入力してください" }
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        %label.chat-group-form__label チャットメンバー
+      .chat-group-form__field--right
+        - @group.users.each do |user|
+          .chat-group-user.clearfix
+            .chat-group-user__name #{user.name}
+            - if current_user.id != user.id
+              .chat-group-user__btn.chat-group-user__btn--remove 削除
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
