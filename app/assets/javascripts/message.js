@@ -17,10 +17,13 @@ $(function() {
   }
 
   $('.input-form').on('submit', function(e) {
-    e.preventDefault();
     var textField = $('.input-form__message');
-    var groupId = textField.data('message');
     var body = textField.val();
+    if (!body) {
+      return;
+    }
+    e.preventDefault();
+    var button = $('.input-form__send-button');
     $.ajax({
       type: 'POST',
       url: "./messages.json",
@@ -35,6 +38,7 @@ $(function() {
       var html = buildHTML(data);
       $('.message-list').append(html);
       textField.val('');
+      button.attr('disabled', false);
     })
     .fail(function() {
       alert('error');
