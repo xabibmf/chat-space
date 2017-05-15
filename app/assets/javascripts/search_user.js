@@ -1,9 +1,16 @@
 $(function() {
 
-  function appendList(user_name) {
-    var html = $('<li class="chat-group-user clearfix">');
-    html.append('<div class="chat-group-user__name">' + user_name + '</div>');
+  function appendCandidate(user) {
+    var html = $('<li data-user_id="' + user.id + '" class="chat-group-user clearfix">');
+    html.append('<div class="chat-group-user__name">' + user.name + '</div>');
     html.append('<div class="chat-group-user__btn chat-group-user__btn--add">追加</div>');
+    return html;
+  }
+
+  function appendList(user_id, user_name) {
+    var html = $('<li data-user_id="' + user_id + '" class="chat-group-user clearfix">');
+    html.append('<div class="chat-group-user__name">' + user_name + '</div>');
+    html.append('<div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>');
     return html;
   }
 
@@ -19,12 +26,12 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var member = $('.chat-member-list');
+      var member = $('.chat-member-candidate');
       member.empty();
       var current_user_id = member.data('current');
       data.forEach(function(user) {
         if (user.id != current_user_id) {
-          var html = appendList(user.name);
+          var html = appendCandidate(user);
           member.append(html);
         }
       })
@@ -32,8 +39,12 @@ $(function() {
     .fail(function() {
       alert('error');
     })
-    .always(function() {
+  });
 
-    })
+  $('.chat-member-candidate').on("click", ".chat-group-user__btn--add", function() {
+    var add_user = $(this).parent("li");
+    var html = appendList(add_user.data('user_id'), add_user.children('.chat-group-user__name').text());
+    html.appendTo('.chat-member-list');
+    add_user.remove();
   });
 });
