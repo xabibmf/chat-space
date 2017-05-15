@@ -9,7 +9,6 @@ $(function() {
 
   $("#chat-group-form__input").on("keyup", function(e) {
     var input = $("#chat-group-form__input").val();
-    console.log(input);
     e.preventDefault();
     $.ajax({
       type: 'GET',
@@ -22,9 +21,12 @@ $(function() {
     .done(function(data) {
       var member = $('.chat-member-list');
       member.empty();
+      var current_user_id = member.data('current');
       data.forEach(function(user) {
-        var html = appendList(user.name);
-        member.append(html);
+        if (user.id != current_user_id) {
+          var html = appendList(user.name);
+          member.append(html);
+        }
       })
     })
     .fail(function() {
