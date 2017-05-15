@@ -47,4 +47,9 @@ $(function() {
     html.appendTo('.chat-member-list');
     add_user.remove();
   });
+
+  $('.chat-member-list').on("click", ".chat-group-user__btn--remove", function() {
+    var remove_user = $(this).parent("li");
+    remove_user.remove();
+  })
 });
