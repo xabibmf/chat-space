@@ -23,4 +23,4 @@
 .chat-group-form__field.clearfix
   .chat-group-form__field--left
   .chat-group-form__field--right
-    = submit_tag 'Save',class: "chat-group-form__action-btn", type: "submit", name: "commit", data: {disable_with: "Save"}
+    = f.submit 'Send', class: "chat-group-form__action-btn", type: "submit", name: "commit", data: { disable_with: "Save" }
