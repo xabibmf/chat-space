@@ -15,6 +15,20 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
+  function showCandidate(data, empty_flg) {
+    var member = $('.chat-member-candidate');
+    member.empty();
+    if (empty_flg) {
+      var current_user_id = member.data('current');
+      data.forEach(function(user) {
+        if (user.id != current_user_id) {
+          var html = appendCandidate(user);
+          member.append(html);
+        }
+      })
+    }
+  }
+
   $("#chat-group-form__input").on("keyup", function() {
     var input = $("#chat-group-form__input").val();
     $.ajax({
@@ -26,16 +40,11 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
-      var member = $('.chat-member-candidate');
-      member.empty();
-      var current_user_id = member.data('current');
-      data.forEach(function(user) {
-        if (user.id != current_user_id) {
-          var html = appendCandidate(user);
-          member.append(html);
-        }
-      })
+      var empty_flg = false;
+      if (input) {
+        empty_flg = true;
+      }
+      showCandidate(data, empty_flg);
     })
     .fail(function() {
       alert('error');
