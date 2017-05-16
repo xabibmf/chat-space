@@ -26,6 +26,7 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
+      console.log(data);
       var member = $('.chat-member-candidate');
       member.empty();
       var current_user_id = member.data('current');
