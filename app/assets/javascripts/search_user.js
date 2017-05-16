@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
 
   function appendCandidate(user) {
     var html = $('<li data-user_id="' + user.id + '" class="chat-group-user clearfix">');
@@ -15,9 +15,8 @@ $(function() {
     return html;
   }
 
-  $("#chat-group-form__input").on("keyup", function(e) {
+  $("#chat-group-form__input").on("keyup", function() {
     var input = $("#chat-group-form__input").val();
-    e.preventDefault();
     $.ajax({
       type: 'GET',
       url: "/search",
