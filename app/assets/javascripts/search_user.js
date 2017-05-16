@@ -20,7 +20,7 @@ $(function() {
     e.preventDefault();
     $.ajax({
       type: 'GET',
-      url: "./new.json",
+      url: "/groups/new",
       data: {
         name: input
       },
