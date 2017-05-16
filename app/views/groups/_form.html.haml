@@ -19,7 +19,7 @@
           .chat-group-user__name #{user.name}
           - if current_user.id != user.id
             .chat-group-user__btn.chat-group-user__btn--remove 削除
-          %input{ type: "hidden", name: "user_ids[]", value: user.id }
+          = hidden_field_tag 'user_ids[]', user.id
 .chat-group-form__field.clearfix
   .chat-group-form__field--left
   .chat-group-form__field--right
