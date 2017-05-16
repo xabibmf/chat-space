@@ -33,7 +33,6 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: 'グループ情報が編集されました。'
     else
-      flash.now[:alert] = 'グループ編集に失敗しました。'
       render :edit
     end
   end

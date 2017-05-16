@@ -1,19 +1,5 @@
-= render 'shared/flash'
 .chat-group-form
   %h1 チャットグループ編集
+  = render 'group_error'
   = form_for @group, id: "edit_chat_group", class: 'edit_chat_group' do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, "グループ名", class: 'chat-group-form__label'
-      .chat-group-form__field--right
-        = f.text_field :name, id: 'chat_group_name', class: 'chat-group-form__input', placeholder: "グループ名を入力してください", value: "#{@group.name}"
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :users, "チャットメンバー", class: 'chat-group-form__label'
-      .chat-group-form__field--right
-        = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |b|
-          = b.label { b.check_box + b.text }
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = submit_tag 'Save',class: "chat-group-form__action-btn", type: "submit", name: "commit", data: {disable_with: "Save"}
+    = render 'form', { f: f }

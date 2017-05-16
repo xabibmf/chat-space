@@ -1,36 +1,5 @@
-= render 'shared/flash'
 .chat-group-form
   %h1 新規チャットグループ
-  - if @group.errors.any?
-    .chat-group-form__errors
-      %h2 #{@group.errors.count}件のエラーが発生しました。
-      %ul
-        - @group.errors.full_messages.each do |message|
-          %li= message
+  = render 'group_error'
   = form_for @group, html: {id: 'new_chat_group', class: 'new_chat_group'} do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, "グループ名", class: 'chat-group-form__label'
-      .chat-group-form__field--right
-        = f.text_field :name, id: 'chat_group_name', class: 'chat-group-form__input', placeholder: "グループ名を入力してください"
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :users, "チャットメンバーを追加", class: 'chat-group-form__label'
-      .chat-group-form__field--right
-        %input#chat-group-form__input.chat-group-form__input{ placeholder: "追加したいユーザ名を入力してください" }
-        %ul.chat-member-candidate{data: {current: "#{current_user.id}"}}
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        %label.chat-group-form__label チャットメンバー
-      .chat-group-form__field--right
-        %ul.chat-member-list
-          - @group.users.each do |user|
-            %li.chat-group-user.clearfix
-              .chat-group-user__name #{user.name}
-              - if current_user.id != user.id
-                .chat-group-user__btn.chat-group-user__btn--remove 削除
-              %input{ type: "hidden", name: "user_ids[]", value: user.id }
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = submit_tag 'Save',class: "chat-group-form__action-btn", type: "submit", name: "commit", data: {disable_with: "Save"}
+    = render 'form', { f: f }
