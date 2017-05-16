@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :groups, except: [:index, :show, :destroy] do
     resources :messages, only: [:index, :create]
   end
+  get 'search', to: "users#search"
 end

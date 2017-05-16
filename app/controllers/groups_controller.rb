@@ -2,15 +2,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def new
-    respond_to do |format|
-      format.html {
-        @group = Group.new
-        @group.users << current_user
-      }
-      format.json {
-        render json: User.where("name like '%#{name_params[:name]}%'")
-      }
-    end
+    @group = Group.new
+    @group.users << current_user
   end
 
   def index
@@ -45,9 +38,5 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
-  end
-
-  def name_params
-    params.permit(:name)
   end
 end
