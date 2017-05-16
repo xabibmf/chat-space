@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  var search_result;
 
   function appendCandidate(user) {
     var html = $('<li data-user_id="' + user.id + '" class="chat-group-user clearfix">');
@@ -29,6 +30,15 @@ $(document).on('turbolinks:load', function() {
     }
   }
 
+  function isEmptyMemberField() {
+    var input = $("#chat-group-form__input").val();
+    if (input) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   $("#chat-group-form__input").on("keyup", function() {
     var input = $("#chat-group-form__input").val();
     $.ajax({
@@ -40,11 +50,8 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var empty_flg = false;
-      if (input) {
-        empty_flg = true;
-      }
-      showCandidate(data, empty_flg);
+      search_result = data;
+      showCandidate(search_result, isEmptyMemberField());
     })
     .fail(function() {
       alert('error');
@@ -61,5 +68,6 @@ $(document).on('turbolinks:load', function() {
   $('.chat-member-list').on("click", ".chat-group-user__btn--remove", function() {
     var remove_user = $(this).parent("li");
     remove_user.remove();
+    showCandidate(search_result, isEmptyMemberField());
   });
 });
