@@ -11,6 +11,7 @@ $(function() {
     var html = $('<li data-user_id="' + user_id + '" class="chat-group-user clearfix">');
     html.append('<div class="chat-group-user__name">' + user_name + '</div>');
     html.append('<div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>');
+    html.append('<input type="hidden" name="user_ids[]" value="' + user_id + '">')
     return html;
   }
 
@@ -51,5 +52,5 @@ $(function() {
   $('.chat-member-list').on("click", ".chat-group-user__btn--remove", function() {
     var remove_user = $(this).parent("li");
     remove_user.remove();
-  })
+  });
 });
