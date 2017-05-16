@@ -1,6 +1,12 @@
 = render 'shared/flash'
 .chat-group-form
   %h1 新規チャットグループ
+  - if @group.errors.any?
+    .chat-group-form__errors
+      %h2 #{@group.errors.count}件のエラーが発生しました。
+      %ul
+        - @group.errors.full_messages.each do |message|
+          %li= message
   = form_for @group, html: {id: 'new_chat_group', class: 'new_chat_group'} do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left

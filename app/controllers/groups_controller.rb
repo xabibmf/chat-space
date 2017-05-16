@@ -25,7 +25,6 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to group_messages_path(@group), notice: 'グループが作成されました。'
     else
-      flash.now[:alert] = 'グループ作成に失敗しました。'
       render :new
     end
   end
