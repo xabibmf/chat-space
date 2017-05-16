@@ -2,14 +2,14 @@ $(document).on('turbolinks:load', function() {
   var search_result;
 
   function appendCandidate(user) {
-    var html = $('<li data-user_id="' + user.id + '" class="chat-group-user clearfix">');
+    var html = $('<li data-user-id="' + user.id + '" class="chat-group-user clearfix">');
     html.append('<div class="chat-group-user__name">' + user.name + '</div>');
     html.append('<div class="chat-group-user__btn chat-group-user__btn--add">追加</div>');
     return html;
   }
 
   function appendList(user_id, user_name) {
-    var html = $('<li data-user_id="' + user_id + '" class="chat-group-user clearfix">');
+    var html = $('<li data-user-id="' + user_id + '" class="chat-group-user clearfix">');
     html.append('<div class="chat-group-user__name">' + user_name + '</div>');
     html.append('<div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>');
     html.append('<input type="hidden" name="user_ids[]" value="' + user_id + '">')
@@ -19,10 +19,14 @@ $(document).on('turbolinks:load', function() {
   function showCandidate(data, empty_flg) {
     var member = $('.chat-member-candidate');
     member.empty();
+    var current_user_id = member.data('user-id')
     if (empty_flg) {
-      var current_user_id = member.data('current');
+      member_ids = [];
+      $('li.chat-group-user').each(function() {
+        member_ids.push($(this).data('user-id'));
+      })
       data.forEach(function(user) {
-        if (user.id != current_user_id) {
+        if ($.inArray(user.id, member_ids) < 0) {
           var html = appendCandidate(user);
           member.append(html);
         }
@@ -60,7 +64,7 @@ $(document).on('turbolinks:load', function() {
 
   $('.chat-member-candidate').on("click", ".chat-group-user__btn--add", function() {
     var add_user = $(this).parent("li");
-    var html = appendList(add_user.data('user_id'), add_user.children('.chat-group-user__name').text());
+    var html = appendList(add_user.data('user-id'), add_user.children('.chat-group-user__name').text());
     html.appendTo('.chat-member-list');
     add_user.remove();
   });
