@@ -35,7 +35,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
+      var html = buildHTML(data.messages);
       $('.message-list').append(html);
       textField.val('');
     })
