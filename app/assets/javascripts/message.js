@@ -19,7 +19,7 @@ $(function() {
   $('.input-form').on('submit', function(e) {
     var textField = $('.input-form__message');
     var body = textField.val();
-    if (!body) {
+    if (!body || image) {
       return;
     }
     e.preventDefault();
