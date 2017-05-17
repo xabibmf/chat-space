@@ -46,4 +46,8 @@ $(function() {
       button.attr('disabled', false);
     })
   });
+
+  $('.input-form__image').on('click', function() {
+    $("input[type='file']").trigger('click');
+  });
 });
