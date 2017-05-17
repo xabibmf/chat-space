@@ -26,7 +26,7 @@ $(function() {
     var button = $('.input-form__send-button');
     $.ajax({
       type: 'POST',
-      url: "./messages.json",
+      url: "./messages",
       data: {
         message: {
           body: body
@@ -35,7 +35,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
+      var html = buildHTML(data.messages);
       $('.message-list').append(html);
       textField.val('');
     })

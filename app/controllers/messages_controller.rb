@@ -13,9 +13,7 @@ class MessagesController < ApplicationController
         format.html {
           redirect_to group_messages_path(@group), notice: "メッセージ送信成功"
         }
-        format.json {
-          render json: @message.to_json(include: [:user])
-        }
+        format.json
       end
     else
       flash.now[:alert] = 'メッセージ送信失敗'
