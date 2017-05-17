@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    render :new_edit
   end
 
   def index
@@ -11,6 +12,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    render :new_edit
   end
 
   def create
