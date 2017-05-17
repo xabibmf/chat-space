@@ -2,14 +2,14 @@ $(document).on('turbolinks:load', function() {
   var search_result;
 
   function appendCandidate(user) {
-    var html = $('<li data-user-id="' + user.id + '" class="chat-group-user clearfix">');
+    var html = $(`<li data-user-id="${user.id}" class="chat-group-user clearfix">`);
     html.append(`<div class="chat-group-user__name">${user.name}</div>
     <div class="chat-group-user__btn chat-group-user__btn--add">追加</div>`);
     return html;
   }
 
   function appendList(user_id, user_name) {
-    var html = $('<li data-user-id="' + user_id + '" class="chat-group-user clearfix">');
+    var html = $(`<li data-user-id="${user_id}" class="chat-group-user clearfix">`);
     html.append(`<div class="chat-group-user__name">${user_name}</div>
     <div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>
     <input type="hidden" name="user_ids[]" value="${user_id}">`);
