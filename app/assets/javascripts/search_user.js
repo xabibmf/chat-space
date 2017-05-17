@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
     var input = $("#chat-group-form__input").val();
     $.ajax({
       type: 'GET',
-      url: "/search",
+      url: "/user/search",
       data: {
         name: input
       },
