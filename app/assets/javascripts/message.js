@@ -19,7 +19,10 @@ $(function() {
   $('.input-form').on('submit', function(e) {
     var textField = $('.input-form__message');
     var body = textField.val();
-    if (!body || image) {
+    var formData = new FormData($('#new_message').get(0));
+
+    var image = $("input[type='file']")[0].files;
+    if (!body && !image.length) {
       return;
     }
     e.preventDefault();
@@ -27,17 +30,20 @@ $(function() {
     $.ajax({
       type: 'POST',
       url: "./messages",
-      data: {
-        message: {
-          body: body
-        }
-      },
-      dataType: 'json'
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
     })
     .done(function(data) {
       var html = buildHTML(data.messages);
       $('.message-list').append(html);
       textField.val('');
+
+      var imagePreloader = new Image();
+      imagePreloader.onload = function() {
+        $('.message-list:last-child').children("img").attr( { 'src': data.image.url });
+      }
     })
     .fail(function() {
       alert('error');
