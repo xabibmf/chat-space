@@ -10,10 +10,11 @@ $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
     var html = $('<li class="message-list__message">')
-    html.append(`<div class="message-list__message__name">${message.user.name}</div>
-    <div class="message-list__message__date">${toLocaleString(new Date(Date.parse(message.created_at)))}</div>
-    <div class="message-list__message__text">${message.body}</div>
-    <img class="message-list__message__image" src="${message.image.url}">`);
+    var messageName = `<div class="message-list__message__name">${message.user.name}</div>`;
+    var messageDate = `<div class="message-list__message__date">${toLocaleString(new Date(Date.parse(message.created_at)))}</div>`;
+    var messageText = `<div class="message-list__message__text">${message.body}</div>`;
+    var messageImage = `<img class="message-list__message__image" src="${message.image.url}">`;
+    html.append(messageName + messageDate + messageText + messageImage);
     return html;
   }
 

@@ -3,16 +3,18 @@ $(document).on('turbolinks:load', function() {
 
   function appendCandidate(user) {
     var html = $(`<li data-user-id="${user.id}" class="chat-group-user clearfix">`);
-    html.append(`<div class="chat-group-user__name">${user.name}</div>
-    <div class="chat-group-user__btn chat-group-user__btn--add">追加</div>`);
+    var userName = `<div class="chat-group-user__name">${user.name}</div>`;
+    var addButton = `<div class="chat-group-user__btn chat-group-user__btn--add">追加</div>`;
+    html.append(userName + addButton);
     return html;
   }
 
   function appendList(user_id, user_name) {
     var html = $(`<li data-user-id="${user_id}" class="chat-group-user clearfix">`);
-    html.append(`<div class="chat-group-user__name">${user_name}</div>
-    <div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>
-    <input type="hidden" name="user_ids[]" value="${user_id}">`);
+    var userName = `<div class="chat-group-user__name">${user_name}</div>`;
+    var removeButton = `<div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>`;
+    var userIds = `<input type="hidden" name="user_ids[]" value="${user_id}">`;
+    html.append(userName + removeButton + userIds);
     return html;
   }
 
