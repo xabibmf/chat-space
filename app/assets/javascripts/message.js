@@ -9,17 +9,19 @@ $(document).on('turbolinks:load', function() {
   }
 
   function buildHTML(message) {
+    console.log(message.image);
     var html = $('<li class="message-list__message">')
     var messageName = `<div class="message-list__message__name">${message.user.name}</div>`;
     var messageDate = `<div class="message-list__message__date">${toLocaleString(new Date(Date.parse(message.created_at)))}</div>`;
     var messageText = `<div class="message-list__message__text">${message.body}</div>`;
-    var messageImage = `<img class="message-list__message__image" src="${message.image.url}">`;
+    var messageImage = message.image.url ? `<img class="message-list__message__image" src="${message.image.url}">` : "";
     html.append(messageName + messageDate + messageText + messageImage);
     return html;
   }
 
   $('.input-form').on('submit', function(e) {
-    var body = $('.input-form__message').val();
+    var textField = $('.input-form__message');
+    var body = textField.val();
     var formData = new FormData($('#new_message').get(0));
 
     var image = $("input[type='file']")[0].files;
