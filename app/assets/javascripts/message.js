@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
 
   function toLocaleString(date) {
     return [
@@ -13,7 +13,7 @@ $(function() {
     html.append(`<div class="message-list__message__name">${message.user.name}</div>
     <div class="message-list__message__date">${toLocaleString(new Date(Date.parse(message.created_at)))}</div>
     <div class="message-list__message__text">${message.body}</div>
-    <img src="${message.image.url}">`);
+    <img class="message-list__message__image" src="${message.image.url}">`);
     return html;
   }
 

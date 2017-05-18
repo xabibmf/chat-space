@@ -2,4 +2,4 @@
   .message-list__message__name= message.user.name
   .message-list__message__date= message.created_at.strftime('%Y-%m-%d %H:%M:%S')
   .message-list__message__text= message.body
-  = image_tag message.image
+  = image_tag message.image, class: "message-list__message__image"
