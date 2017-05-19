@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
     var html = $(`<li data-user-id="${user.id}" class="chat-group-user clearfix">`);
     var userName = `<div class="chat-group-user__name">${user.name}</div>`;
     var addButton = `<div class="chat-group-user__btn chat-group-user__btn--add">追加</div>`;
-    html.append(userName + addButton);
+    html.append(`${userName + addButton}`);
     return html;
   }
 
@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function() {
     var userName = `<div class="chat-group-user__name">${user_name}</div>`;
     var removeButton = `<div class="chat-group-user__btn chat-group-user__btn--remove">削除</div>`;
     var userIds = `<input type="hidden" name="user_ids[]" value="${user_id}">`;
-    html.append(userName + removeButton + userIds);
+    html.append(`${userName + removeButton + userIds}`);
     return html;
   }
 

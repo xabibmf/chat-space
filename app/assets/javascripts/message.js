@@ -9,13 +9,12 @@ $(document).on('turbolinks:load', function() {
   }
 
   function buildHTML(message) {
-    console.log(message.image);
     var html = $('<li class="message-list__message">')
     var messageName = `<div class="message-list__message__name">${message.user.name}</div>`;
     var messageDate = `<div class="message-list__message__date">${toLocaleString(new Date(Date.parse(message.created_at)))}</div>`;
     var messageText = `<div class="message-list__message__text">${message.body}</div>`;
     var messageImage = message.image.url ? `<img class="message-list__message__image" src="${message.image.url}">` : "";
-    html.append(messageName + messageDate + messageText + messageImage);
+    html.append(`${messageName + messageDate + messageText + messageImage}`);
     return html;
   }
 
