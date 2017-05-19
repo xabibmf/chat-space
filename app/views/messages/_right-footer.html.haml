@@ -1,6 +1,7 @@
 .right-footer
   = form_for [@group, @message], html: { class: "input-form" } do |f|
     = f.text_field :body, class: "input-form__message", placeholder: "type a message"
-    = link_to "http://google.co.jp" do
-      %i.fa.fa-picture-o.input-form__image
+    = f.file_field :image, style: "display: none;"
+    = f.hidden_field :image_cache
+    %i.fa.fa-picture-o.input-form__image
     = f.submit 'Send', class: "input-form__send-button"
