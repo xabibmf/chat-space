@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
   }
 
   function buildHTML(message) {
-    var html = $('<li class="message-list__message" data-message-id="${message.id}">');
+    var html = $(`<li class="message-list__message" data-message-id="${message.id}">`);
     html.append(`<div class="message-list__message__name">${message.user.name}</div>
     <div class="message-list__message__date">${toLocaleString(new Date(Date.parse(message.created_at)))}</div>
     <div class="message-list__message__text">${message.body}</div>
@@ -27,10 +27,10 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
       if (data.messages.length > 0) {
-        for (var message in data.messages) {
-          var html = buildHTML(data.messages);
+        data.messages.forEach(function(message) {
+          var html = buildHTML(message);
           $('.message-list').append(html);
-        }
+        });
       }
     })
     .fail(function() {
