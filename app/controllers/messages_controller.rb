@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
-  before_action :set_group, only: [:index, :create]
-  before_action :set_messages, only: [:index, :create]
+  before_action :set_group, only: [:index, :create, :reload]
+  before_action :set_messages, only: [:index, :create, :reload]
 
   def index
     @message = Message.new
@@ -21,10 +21,23 @@ class MessagesController < ApplicationController
     end
   end
 
+  def reload
+    @reload_message = @messages.search_new_messaage(reload_params[:messageId])
+    if @reload_message
+      respond_to do |format|
+        format.json
+      end
+    end
+  end
+
   private
 
   def message_params
     params.require(:message).permit(:body, :image).merge(params.permit(:group_id))
+  end
+
+  def reload_params
+    params.permit(:messageId)
   end
 
   def set_group
