@@ -40,6 +40,7 @@ $(document).on('turbolinks:load', function() {
       var html = buildHTML(data.messages);
       $('.message-list').append(html);
       textField.val('');
+      $("input[type='file']").val('');
     })
     .fail(function() {
       alert('error');
