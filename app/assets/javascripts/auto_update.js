@@ -27,21 +27,18 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
       if (data.messages.length > 0) {
-        var html = buildHTML(data.messages);
-        $('.message-list').append(html);
-      }
-      else {
-        console.log("test");
+        for (var message in data.messages) {
+          var html = buildHTML(data.messages);
+          $('.message-list').append(html);
+        }
       }
     })
     .fail(function() {
-      // alert('error');
+      alert('error');
     })
   }
 
-  (function() {
-    if ($('body').data('controller')=="messages") {
-        var update_interval = setInterval(update, 1000);
-    }
-  })();
+  if(/messages/.test(location.pathname)){
+    setInterval(update ,10000)
+  }
 });
