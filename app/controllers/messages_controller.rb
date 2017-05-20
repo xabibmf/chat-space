@@ -22,8 +22,8 @@ class MessagesController < ApplicationController
   end
 
   def reload
-    @reload_message = @messages.search_new_messaage(reload_params[:messageId])
-    if @reload_message
+    @reload_messages = @messages.search_new_messaage(reload_params[:messageId])
+    if @reload_messages
       respond_to do |format|
         format.json
       end
