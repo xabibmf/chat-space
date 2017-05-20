@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'groups#index'
   resources :groups, except: [:index, :show, :destroy] do
     resources :messages, only: [:index, :create]
-    get :reload, to: "messages#reload"
   end
   resource :user, only: :search do
     get :search, on: :collection

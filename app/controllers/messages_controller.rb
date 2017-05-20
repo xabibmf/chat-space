@@ -1,9 +1,16 @@
 class MessagesController < ApplicationController
-  before_action :set_group, only: [:index, :create, :reload]
-  before_action :set_messages, only: [:index, :create, :reload]
+  before_action :set_group, only: [:index, :create]
+  before_action :set_messages, only: [:index, :create]
 
   def index
     @message = Message.new
+    @reload_messages = @messages.search_new_messaage(reload_params[:messageId])
+    if @reload_messages
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
   end
 
   def create
@@ -18,15 +25,6 @@ class MessagesController < ApplicationController
     else
       flash.now[:alert] = 'メッセージ送信失敗'
       render :index
-    end
-  end
-
-  def reload
-    @reload_messages = @messages.search_new_messaage(reload_params[:messageId])
-    if @reload_messages
-      respond_to do |format|
-        format.json
-      end
     end
   end
 

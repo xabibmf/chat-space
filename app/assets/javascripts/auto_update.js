@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
     var messageId = $('.message-list li:last').data('message-id');
     $.ajax({
       type: 'GET',
-      url: "./reload",
+      url: "./messages",
       data: { messageId: messageId },
       dataType: 'json'
     })
