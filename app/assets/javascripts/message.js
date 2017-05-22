@@ -2,10 +2,10 @@ $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
     var html = $(`<li class="message-list__message" data-message-id="${message.id}">`);
-    html.append(`<div class="message-list__message__name">${message.user.name}</div>
+    html.append(`<div class="message-list__message__name">${message.name}</div>
     <div class="message-list__message__date">${message.created_at}</div>
     <div class="message-list__message__text">${message.body}</div>`);
-    imageHtml = message.image.url ? `<img class="message-list__message__image" src="${message.image.url}">` : "";
+    imageHtml = message.url ? `<img class="message-list__message__image" src="${message.url}">` : "";
     html.append(imageHtml);
     return html;
   }
@@ -30,8 +30,7 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
-      console.log(data);
-      var html = buildHTML(data.messages);
+      var html = buildHTML(data);
       $('.message-list').append(html);
       textField.val('');
       $("input[type='file']").val('');
