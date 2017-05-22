@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function() {
     var formData = new FormData($('#new_message').get(0));
     console.log(formData);
     var image = $("input[type='file']")[0].files;
+    console.log(image);
     if (!body && !image.length) {
       return;
     }
