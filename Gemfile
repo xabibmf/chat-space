@@ -13,7 +13,7 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave'
-gem 'mini_magick'
+# gem 'mini_magick'
 gem 'fog'
 gem 'pry-rails'
 
