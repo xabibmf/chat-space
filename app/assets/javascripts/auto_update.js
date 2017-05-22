@@ -2,10 +2,10 @@ $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
     var html = $(`<li class="message-list__message" data-message-id="${message.id}">`);
-    html.append(`<div class="message-list__message__name">${message.user.name}</div>
+    html.append(`<div class="message-list__message__name">${message.name}</div>
     <div class="message-list__message__date">${message.created_at}</div>
     <div class="message-list__message__text">${message.body}</div>`);
-    imageHtml = message.image.url ? `<img class="message-list__message__image" src="${message.image.url}">` : "";
+    imageHtml = message.url ? `<img class="message-list__message__image" src="${message.url}">` : "";
     html.append(imageHtml);
     return html;
   }
@@ -19,8 +19,8 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      if (data.messages.length > 0) {
-        data.messages.forEach(function(message) {
+      if (data.length > 0) {
+        data.forEach(function(message) {
           var html = buildHTML(message);
           $('.message-list').append(html);
         });
@@ -32,6 +32,6 @@ $(document).on('turbolinks:load', function() {
   }
 
   if(/messages/.test(location.pathname)){
-    setInterval(update ,90000)
+    setInterval(update ,10000)
   }
 });
