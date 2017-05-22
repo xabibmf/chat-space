@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  var id;
 
   function buildHTML(message) {
     var html = $(`<li class="message-list__message" data-message-id="${message.id}">`);
@@ -10,7 +11,15 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
+  function need_to_update() {
+    return /messages/.test(location.pathname);
+  }
+
   function update() {
+    if (!need_to_update()) {
+      clearInterval(id);
+      return;
+    }
     var messageId = $('.message-list li:last').data('message-id');
     $.ajax({
       type: 'GET',
@@ -31,7 +40,7 @@ $(document).on('turbolinks:load', function() {
     })
   }
 
-  if(/messages/.test(location.pathname)){
-    setInterval(update ,10000)
+  if (need_to_update()) {
+    id = setInterval(update ,10000);
   }
 });
