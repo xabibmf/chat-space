@@ -30,6 +30,7 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
+      console.log(data);
       var html = buildHTML(data);
       $('.message-list').append(html);
       textField.val('');
