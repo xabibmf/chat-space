@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function() {
       $("input[type='file']").val('');
     })
     .fail(function() {
-      alert('error');
+      alert('send message error');
     })
     .always(function() {
       button.attr('disabled', false);
