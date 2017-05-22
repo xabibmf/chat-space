@@ -1,11 +1,12 @@
 $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
-    var html = $('<li class="message-list__message" data-message-id="${message.id}">');
+    var html = $(`<li class="message-list__message" data-message-id="${message.id}">`);
     html.append(`<div class="message-list__message__name">${message.user.name}</div>
     <div class="message-list__message__date">${message.created_at}</div>
-    <div class="message-list__message__text">${message.body}</div>
-    ${message.image.url ? `<img class="message-list__message__image" src="${message.image.url}">` : ""}`);
+    <div class="message-list__message__text">${message.body}</div>`);
+    imageHtml = message.image.url ? `<img class="message-list__message__image" src="${message.image.url}">` : "";
+    html.append(imageHtml);
     return html;
   }
 
