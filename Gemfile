@@ -15,12 +15,13 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
-  gem 'pry-rails'
+
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
