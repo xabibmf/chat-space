@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function() {
     var textField = $('.input-form__message');
     var body = textField.val();
     var formData = new FormData($('#new_message').get(0));
-
+    console.log(formData);
     var image = $("input[type='file']")[0].files;
     if (!body && !image.length) {
       return;
