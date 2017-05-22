@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function() {
   }
 
   function update() {
+    console.log(need_to_update());
     if (!need_to_update()) {
       clearInterval(id);
       return;
