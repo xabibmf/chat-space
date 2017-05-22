@@ -20,6 +20,7 @@ $(document).on('turbolinks:load', function() {
       clearInterval(id);
       return;
     }
+    console.log("eee");
     var messageId = $('.message-list li:last').data('message-id');
     $.ajax({
       type: 'GET',
