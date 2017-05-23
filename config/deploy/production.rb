@@ -8,7 +8,9 @@ server '54.65.204.151', user: 'ec2-user', roles: %w{ app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = @app_path + "/current/Gemfile"
+end
 
 # role-based syntax
 # ==================
